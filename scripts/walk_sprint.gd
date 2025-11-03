@@ -1,6 +1,5 @@
 extends Node2D
 
-var dir = 0
 const SPRINT_SPEED = 4
 const WALK_SPEED = 2
 var speed = WALK_SPEED
