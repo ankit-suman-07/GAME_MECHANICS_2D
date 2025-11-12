@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv5e2cvnejpd8"]
+[gd_scene load_steps=3 format=3 uid="uid://chryb2ta25dq4"]
 
 [ext_resource type="PackedScene" uid="uid://cgdc08it3hl8q" path="res://scenes/components/platform.tscn" id="1_ocbw8"]
 [ext_resource type="PackedScene" uid="uid://b4xnvt3uk0cnb" path="res://scenes/components/player.tscn" id="2_elo2e"]
 
-[node name="move" type="Node2D"]
+[node name="main_move" type="Node2D"]
 
 [node name="platform" parent="." instance=ExtResource("1_ocbw8")]
 position = Vector2(0, 399)
