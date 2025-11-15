@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh1p3v8dpmxxs"]
+
+[ext_resource type="Script" uid="uid://bo024lr12hhfv" path="res://scripts/sword.gd" id="1_ognu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5ht7"]
+size = Vector2(43.840622, 7.778177)
+
+[sub_resource type="Animation" id="Animation_q0gws"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ognu2"]
+resource_name = "strike"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00076026906, 0.04, 0.06, 0.08, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3926991, 0.7853982, 0.3926991, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vkb2"]
+_data = {
+&"RESET": SubResource("Animation_q0gws"),
+&"strike": SubResource("Animation_ognu2")
+}
+
+[node name="sword" type="StaticBody2D"]
+script = ExtResource("1_ognu2")
+
+[node name="sword" type="ColorRect" parent="."]
+offset_top = -4.0
+offset_right = 60.0
+offset_bottom = 4.0
+rotation = -0.7853982
+
+[node name="handle" type="ColorRect" parent="."]
+offset_left = 17.0
+offset_top = -2.0
+offset_right = 37.0
+offset_bottom = 4.0
+rotation = -2.3561945
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29.750002, -28.25)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_v5ht7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4vkb2")
+}

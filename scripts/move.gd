@@ -8,6 +8,7 @@ const MAX_JUMPS := 2
 var speed := BASE_SPEED
 var jumps_left := MAX_JUMPS
 var was_on_wall := false
+var can_crouch = false
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -41,5 +42,13 @@ func _physics_process(delta: float) -> void:
 	# Dash
 	if Input.is_action_just_pressed("dash"):
 		velocity.x += direction * 1000  # make sane later
+		
+	if Input.is_action_just_pressed("crouch") and (can_crouch == false):
+		scale.y = scale.y/2
+		can_crouch = true
+	else:
+		can_crouch = false
+		
+		
 
 	move_and_slide()
