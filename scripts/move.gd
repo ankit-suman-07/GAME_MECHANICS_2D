@@ -8,7 +8,13 @@ const MAX_JUMPS := 2
 var speed := BASE_SPEED
 var jumps_left := MAX_JUMPS
 var was_on_wall := false
-var can_crouch = false
+var can_crouch = true
+var is_crouching := false
+var normal_scale := Vector2.ONE
+var crouch_scale := Vector2(1, 0.5)
+
+func _ready() -> void:
+	normal_scale = scale   # store original size
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -43,11 +49,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash"):
 		velocity.x += direction * 1000  # make sane later
 		
-	if Input.is_action_just_pressed("crouch") and (can_crouch == false):
-		scale.y = scale.y/2
-		can_crouch = true
+	# Crouch logic
+	if Input.is_action_pressed("crouch"):
+		if not is_crouching:
+			is_crouching = true
+			scale = crouch_scale
 	else:
-		can_crouch = false
+		if is_crouching:
+			is_crouching = false
+			scale = normal_scale
+
+	move_and_slide()
 		
 		
 

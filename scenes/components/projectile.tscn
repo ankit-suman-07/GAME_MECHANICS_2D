@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://2piujqbjgl0n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07c8n"]
+radius = 24.0
+
+[node name="projectile" type="CharacterBody2D"]
+
+[node name="one" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="two" type="ColorRect" parent="."]
+offset_top = -22.201412
+offset_right = 32.0
+offset_bottom = 9.798588
+rotation = 0.7853982
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_07c8n")
