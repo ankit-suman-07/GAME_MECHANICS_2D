@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnsmayoqe14ia"]
+
+[ext_resource type="Script" uid="uid://de77i0heir58d" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="move" type="MenuButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 24
+text = "move
+"
+
+[node name="jump" type="MenuButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 24
+text = "jump
+"
+
+[node name="weapons" type="MenuButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 24
+text = "weapons
+"
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 744.0
+offset_right = 777.0
+offset_bottom = 775.0
+text = "EXIT"
+
+[connection signal="pressed" from="VBoxContainer/move" to="." method="_on_move_pressed"]
+[connection signal="pressed" from="VBoxContainer/jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="VBoxContainer/weapons" to="." method="_on_weapons_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

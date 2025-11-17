@@ -54,3 +54,8 @@ func _process(delta: float) -> void:
 	if sword:
 		sword.scale.x = last_dir
 		sword.position.x = offset * last_dir
+
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
